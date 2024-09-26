@@ -14,7 +14,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { PlusIcon, RefreshCw, Trash2 } from 'lucide-react'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons"
@@ -134,6 +134,7 @@ export default function FridgeDashboard() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
+                    
                     <Popover open={dropdownOpen} onOpenChange={setDropdownOpen}>
                       <PopoverTrigger asChild>
                         <Button
@@ -149,10 +150,11 @@ export default function FridgeDashboard() {
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent className="w-full p-0">
-                        <Command>
-                          <CommandInput placeholder="Search ingredient..." className="h-9" />
-                          <CommandEmpty>No ingredient found.</CommandEmpty>
-                          <CommandGroup>
+                      <Command>
+                        <CommandInput placeholder="Search ingredient..." className="h-9" />
+                        <CommandEmpty>No ingredient found.</CommandEmpty>
+                        <CommandGroup>
+                          <CommandList>
                             {ingredientOptions.map((ingredient) => (
                               <CommandItem
                                 key={ingredient.name}
@@ -170,9 +172,10 @@ export default function FridgeDashboard() {
                                 />
                               </CommandItem>
                             ))}
-                          </CommandGroup>
-                        </Command>
-                      </PopoverContent>
+                          </CommandList>
+                        </CommandGroup>
+                      </Command>
+                    </PopoverContent>
                     </Popover>
                   </div>
                   <div>
