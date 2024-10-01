@@ -174,7 +174,7 @@ export default function FridgeDashboard() {
                             ))}
                           </CommandList>
                         </CommandGroup>
-                      </Command>
+                      </Command> 
                     </PopoverContent>
                     </Popover>
                   </div>
